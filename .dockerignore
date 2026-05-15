@@ -1,0 +1,11 @@
+.git/
+.gitignore
+data/raw/*.csv
+data/raw/*.parquet
+data/transformed/
+*.duckdb
+__pycache__/
+.env
+.venv/
+.prefect/
+.ipynb_checkpoints/
