@@ -1,8 +1,10 @@
 # Datos (no versionar datasets)
-data/raw/*.csv
 data/raw/*.parquet
 data/transformed/
 *.duckdb
+
+# Dataset fuente del curso (SÍ versionar — excepción explícita)
+!data/raw/superstore.csv
 
 # dbt
 dbt_project/target/
