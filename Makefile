@@ -23,3 +23,11 @@ clean:
 	rm -f data/raw/*.parquet
 	rm -f data/transformed/*.duckdb
 	rm -rf dbt_project/target/ dbt_project/logs/
+dbt-run:
+	docker compose run --rm pipeline bash -c "cd dbt_project && dbt run --profiles-dir ."
+
+dbt-test:
+	docker compose run --rm pipeline bash -c "cd dbt_project && dbt test --profiles-dir ."
+
+dbt-docs:
+	docker compose run --rm -p 8080:8080 pipeline bash -c "cd dbt_project && dbt docs generate --profiles-dir . && dbt docs serve --profiles-dir . --port 8080 --host 0.0.0.0"
