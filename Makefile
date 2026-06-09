@@ -1,4 +1,4 @@
-.PHONY: build verify ingest pipeline dashboard jupyter clean
+.PHONY: build verify ingest pipeline dashboard jupyter clean dbt-run dbt-test dbt-docs
 
 build:
 	docker compose build
