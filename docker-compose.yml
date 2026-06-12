@@ -5,6 +5,18 @@ services:
       - .:/workspace
     working_dir: /workspace
 
+  prefect-server:
+    build: .
+    volumes:
+      - .:/workspace
+      - prefect-data:/root/.prefect
+    working_dir: /workspace
+    ports:
+      - "4200:4200"
+    environment:
+      - PREFECT_HOME=/root/.prefect
+    command: prefect server start --host 0.0.0.0
+
   dashboard:
     build: .
     volumes:
@@ -28,3 +40,6 @@ services:
       --no-browser
       --allow-root
       --NotebookApp.token=''
+
+volumes:
+  prefect-data:
